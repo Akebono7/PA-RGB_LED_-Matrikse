@@ -64,37 +64,65 @@ void AutputRow::autputRows(byte b){
     }
 }
 
-    void AutputRow::setPosShiftRegisterRGB(byte p1, byte p2, byte p3, byte p4, byte p5, byte p6, byte p7, byte p8,int f){
-        _shiftregister->inputHigh();
-        if(f==0){
-            _shiftregister->inputLow();
-        }else if(f==1){
-            _shiftregister->inputLow(2);
-        }else{
-            _shiftregister->inputLow(3);
-        }
-        _shiftregister->setData();
-        AutputRow::autputRows(p1);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p2);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p3);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p4);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p5);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p6);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p7);
-        _shiftregister->inputLow(4);
-        _shiftregister->setData();
-        AutputRow::autputRows(p8);
-        _shiftregister->resat();
+void AutputRow::setPosShiftRegisterRGB(byte p1, byte p2, byte p3, byte p4, byte p5, byte p6, byte p7, byte p8,int f){
+    _shiftregister->inputHigh();
+    if(f==0){
+        _shiftregister->inputLow();
+    }else if(f==1){
+        _shiftregister->inputLow(2);
+    }else{
+        _shiftregister->inputLow(3);
     }
+    _shiftregister->setData();
+    AutputRow::autputRows(p1);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p2);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p3);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p4);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p5);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p6);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p7);
+    _shiftregister->inputLow(4);
+    _shiftregister->setData();
+    AutputRow::autputRows(p8);
+    _shiftregister->resat();
+}
+
+void AutputRow::setAusgenge(byte a, byte b, byte c, byte d, byte e, int pos ,int farbe){
+    if(pos==1){
+        AutputRow::setPosShiftRegisterRGB(e, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
+    }else if(pos==2){
+        AutputRow::setPosShiftRegisterRGB(d, e,0b0, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
+    }else if(pos==3){
+        AutputRow::setPosShiftRegisterRGB(c, d, e, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
+    }else if(pos==4){
+        AutputRow::setPosShiftRegisterRGB(b, c, d, e, 0b0, 0b0, 0b0, 0b0, farbe);
+    }else if(pos==5){
+        AutputRow::setPosShiftRegisterRGB(a, b, c, d, e, 0b0, 0b0, 0b0, farbe);
+    }else if (pos==6){
+        AutputRow::setPosShiftRegisterRGB(0b0, a, b, c, d, e, 0b0, 0b0, farbe);
+    }else if(pos==7){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, a, b, c, d, e, 0b0, farbe);
+    }else if(pos==8){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, a, b, c, d, e, farbe);
+    }else if(pos==9){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, a, b, c, d, farbe);
+    }else if(pos==10){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, a, b, c, farbe);
+    }else if(pos==11){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, b, farbe);   
+    }else if(pos==12){
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, farbe);
+    }
+}
