@@ -5,7 +5,6 @@
 
 class Akebono{
     private:
-    void setAusgenge(byte a, byte b, byte c, byte d, byte e, int pos, int farbe);
     AutputRow* _autputRow;
     public:
     Akebono(AutputRow* autputrow);
