@@ -246,9 +246,7 @@ void Akebono::setString(String a, int farbe){
         timer=millis();
         while (timer+500>millis()){
           for(int h=0; h <=l; h=h+6){
-              int k=l-h;
-              k=k/6;
-              char c=a.charAt(k);
+              char c=a.charAt((l-h)/6);
               Akebono::charakter(c, farbe, i-h);
           }
         }
