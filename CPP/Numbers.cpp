@@ -120,6 +120,7 @@ int Numbers::setNumberAut(char a, int farbe, int pos){
         break;
     default:
         i=-1;
+        _autputRow->setFehler();
         break;
     }
     return i;
