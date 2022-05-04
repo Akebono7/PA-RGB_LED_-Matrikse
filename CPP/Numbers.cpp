@@ -74,14 +74,70 @@ void Numbers::setNine(int pos, int farbe){
     _autputRow->setAusgenge(a, b, b, c, 0b0, pos, farbe);
 }
 
-int Numbers::setNumberAut(int a, int farbe){
-    if(a==0){
-        Numbers::setNull(0, farbe);
+int Numbers::setNumberAut(char a, int farbe, int pos){
+    int i;
+    switch (a){
+    case '0':
+            Numbers::setNull(pos, farbe);
+            i=0;
+        break;
+
+    case '1':
+        Numbers::setOne(pos, farbe);
+        i=1;
+        break;
+    case '2':
+        Numbers::setTwo(pos, farbe);
+        i=2;
+        break;
+    case '3':
+        Numbers::setThree(pos, farbe);
+        i=3;
+        break;
+    case '4':
+        Numbers::setFour(pos, farbe);
+        i=4;
+        break;
+    case '5':
+        Numbers::setFive(pos, farbe);
+        i=5;
+        break;
+    case '6':
+        Numbers::setSix(pos, farbe);
+        i=6;
+        break;
+    case '7':
+        Numbers::setSeven(pos, farbe);
+        i=7;
+        break;
+    case '8':
+        Numbers::setEight(pos, farbe);
+        i=8;
+        break;
+    case '9':
+        Numbers::setNine(pos, farbe);
+        i=9;
+        break;
+    default:
+        i=-1;
+        break;
     }
+    return i;
 }
 
-int Numbers::setNumbersAusgabe(int number, int farbe){
-    int a=number/100;
-
-
+int Numbers::setNumbersAusgabe(String number, int farbe){
+    int l= number.length();
+    l=l*5;
+    int timer;
+    String b="_"+number;
+    for(int i=1; i<=l; i++){
+        timer=millis();
+        while (timer+500>millis()){
+          for(int h=0; h <=l; h=h+5){
+              char c=b.charAt((l-h)/5);
+              Numbers::setNumberAut(c, farbe, i-h);
+          }
+        }
+    }
+    return number.toInt();
 }
