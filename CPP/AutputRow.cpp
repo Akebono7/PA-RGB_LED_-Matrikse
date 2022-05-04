@@ -126,3 +126,11 @@ void AutputRow::setAusgenge(byte a, byte b, byte c, byte d, byte e, int pos ,int
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, farbe);
     }
 }
+
+void AutputRow::setFehler(){
+    byte a=0b10000001;
+    byte b=0b01000010;
+    byte c=0b00100100;
+    byte d=0b00011000;
+    AutputRow::setPosShiftRegisterRGB(a, b, c, d, d, c, b, a, 0);
+}
