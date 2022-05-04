@@ -182,58 +182,88 @@ void Akebono::setZ(int pos, int farbe){
 }
 
 void Akebono::charakter(char a, int farbe, int pos){
-    if(a=='a'){
-        Akebono::setA(pos, farbe);
-    }else if(a=='b'){
-        Akebono::setB(pos, farbe);
-    }else if(a=='c'){
-        Akebono::setC(pos, farbe);
-    }else if(a=='d'){
-        Akebono::setD(pos, farbe);
-    }else if(a=='e'){
-        Akebono::setE(pos, farbe);
-    }else if(a=='f'){
-        Akebono::setF(pos, farbe);
-    }else if(a=='g'){
-        Akebono::setG(pos, farbe);
-    }else if(a=='h'){
-        Akebono::setH(pos, farbe);
-    }else if(a=='i'){
-        Akebono::setI(pos, farbe);
-    }else if(a=='j'){
-        Akebono::setJ(pos, farbe);
-    }else if(a=='k'){
-        Akebono::setK(pos, farbe);
-    }else if(a=='l'){
-        Akebono::setL(pos, farbe);
-    }else if(a=='m'){
-        Akebono::setM(pos, farbe);
-    }else if(a=='n'){
-        Akebono::setN(pos, farbe);
-    }else if(a=='o'){
-        Akebono::setO(pos, farbe);
-    }else if(a=='p'){
-        Akebono::setP(pos, farbe);
-    }else if(a=='q'){
-        Akebono::setQ(pos, farbe);
-    }else if(a=='r'){
-        Akebono::setR(pos, farbe);
-    }else if(a=='s'){
-        Akebono::setS(pos, farbe);
-    }else if(a=='t'){
-        Akebono::setT(pos, farbe);
-    }else if(a=='u'){
-        Akebono::setU(pos, farbe);
-    }else if(a=='v'){
-        Akebono::setV(pos, farbe);
-    }else if(a=='w'){
-        Akebono::setW(pos, farbe);
-    }else if(a=='x'){
-        Akebono::setX(pos, farbe);
-    }else if(a=='y'){
-        Akebono::setY(pos, farbe);
-    }else if(a=='z'){
-        Akebono::setZ(pos, farbe);
+     switch(a){
+        case 'a':
+            Akebono::setA(pos, farbe);
+            break;
+        case 'b':
+            Akebono::setB(pos, farbe);
+            break;
+        case 'c':
+            Akebono::setC(pos, farbe);
+            break;
+        case 'd':
+            Akebono::setD(pos, farbe);
+            break;
+        case 'e':
+            Akebono::setE(pos, farbe);
+            break;
+        case 'f':
+            Akebono::setF(pos, farbe);
+            break;
+        case 'g':
+            Akebono::setG(pos, farbe);
+            break;
+        case 'h':
+            Akebono::setH(pos, farbe);
+            break;
+        case 'i':
+            Akebono::setI(pos, farbe);
+            break;
+        case 'j':
+            Akebono::setJ(pos, farbe);
+            break;
+        case 'k':
+            Akebono::setK(pos, farbe);
+            break;
+        case 'l':
+            Akebono::setL(pos, farbe);
+            break;
+        case 'm':
+            Akebono::setM(pos, farbe);
+            break;
+        case 'n':
+            Akebono::setN(pos, farbe);
+            break;
+        case 'o':
+            Akebono::setO(pos, farbe);
+            break;
+        case 'p':
+            Akebono::setP(pos, farbe);
+            break;
+        case 'q':
+            Akebono::setQ(pos, farbe);
+            break;
+        case 'r':
+            Akebono::setR(pos, farbe);
+            break;
+        case 's':
+            Akebono::setS(pos, farbe);
+            break;
+        case 't':
+            Akebono::setT(pos, farbe);
+            break;
+        case 'u':
+            Akebono::setU(pos, farbe);
+            break;
+        case 'v':
+            Akebono::setV(pos, farbe);
+            break;
+        case 'w':
+            Akebono::setW(pos, farbe);
+            break;
+        case 'x':
+            Akebono::setX(pos, farbe);
+            break;
+        case 'y':
+            Akebono::setY(pos, farbe);
+            break;
+        case 'z':
+            Akebono::setZ(pos, farbe);
+            break;
+        default:
+            _autputRow->setFehler();
+            break;
     }
 }
 
