@@ -19,10 +19,10 @@ private:
     void setSeven(int pos, int farbe);
     void setEight(int pos, int farbe);
     void setNine(int pos, int farbe);
-    int setNumberAut(int a, int farbe);
+    int setNumberAut(char a, int farbe, int pos);
 public:
     Numbers(AutputRow* autputRow);
-    int setNumbersAusgabe(int number, int farbe);
+    int setNumbersAusgabe(String number, int farbe);
 
 
 };
