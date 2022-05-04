@@ -118,6 +118,9 @@ int Numbers::setNumberAut(char a, int farbe, int pos){
         Numbers::setNine(pos, farbe);
         i=9;
         break;
+    case '_':
+            i=-2;
+            break;
     default:
         i=-1;
         _autputRow->setFehler();
