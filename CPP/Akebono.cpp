@@ -261,6 +261,8 @@ void Akebono::charakter(char a, int farbe, int pos){
         case 'z':
             Akebono::setZ(pos, farbe);
             break;
+         case '_':
+             break;
         default:
             _autputRow->setFehler();
             break;
