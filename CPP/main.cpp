@@ -2,7 +2,6 @@
 #include <Akebono.h>
 #include <AutputRow.h>
 #include <ShiftRegister.h>
-#include <Wire.h>
 #include <Numbers.h>
 #include <BluetoothSerial.h>
 #include <IpFour.h>
@@ -40,7 +39,6 @@ int modus=0;
 volatile int ip1, ip2, ip3, ip4, ipsub;
 volatile int zeler =0;
 volatile int farbe=0;
-volatile int adress= 0x4D;
 void onTimer() {		// Interrupt-Service-Routine
   zeler++;
   if(zeler==61){
@@ -84,6 +82,7 @@ void loop() {
   if(SerialBT.available()>0){
     dataResive();
   }
+  
   switch (modus){
 
   case 0:
@@ -104,4 +103,5 @@ void loop() {
   default:
     break;
   }
+  
 }
