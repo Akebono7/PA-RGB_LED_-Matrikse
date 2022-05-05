@@ -33,7 +33,7 @@ IpFour ip(&aur);
 hw_timer_t* timer = NULL;
 BluetoothSerial SerialBT;
 
-String word="NEW";
+String wordI="NEW";
 String numbers="1234";
 int modus=0;
 
@@ -60,7 +60,7 @@ void setup() {
 void dataResive(){
   String s=SerialBT.readStringUntil('/');
   if(s=="STRING"){
-    word=SerialBT.readStringUntil('/');
+    wordI=SerialBT.readStringUntil('/');
     farbe=SerialBT.readStringUntil('/').toInt();
     modus=1;
   }else if(s=="NUMBER"){
@@ -91,7 +91,7 @@ void loop() {
     break;
 
   case 1:
-    ake.setString(word, farbe);
+    ake.setString(wordI, farbe);
     break;
   
   case 2:
