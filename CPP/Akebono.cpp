@@ -181,6 +181,15 @@ void Akebono::setZ(int pos, int farbe){
     _autputRow->setAusgenge(a, b, c, d, 0b0, pos, farbe);    
 }
 
+void Akebono::setPoint(int pos, int farbe){
+    byte a=0b00000011;
+    _autputRow->setAusgenge(0, a, a, 0, 0, pos, farbe);
+}
+
+void Akebono::setSpace(int pos, int farbe){
+    _autputRow->setAusgenge(0, 0, 0, 0, 0, pos, farbe);
+}
+
 void Akebono::charakter(char a, int farbe, int pos){
      switch(a){
         case 'a':
@@ -261,8 +270,14 @@ void Akebono::charakter(char a, int farbe, int pos){
         case 'z':
             Akebono::setZ(pos, farbe);
             break;
-         case '_':
-             break;
+        case '_':
+            break;
+        case ' ':
+            Akebono::setSpace(pos, farbe);
+            break;
+        case '.':
+            Akebono::setPoint(pos, farbe);
+            break;
         default:
             _autputRow->setFehler();
             break;
