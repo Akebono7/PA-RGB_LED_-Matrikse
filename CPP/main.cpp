@@ -100,6 +100,7 @@ void loop() {
   case 3:
     ip.setIPadresse(ip1, ip2, ip3, ip4, ipsub);
     break;
+      
   default:
     break;
   }
