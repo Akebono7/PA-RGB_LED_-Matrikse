@@ -74,6 +74,33 @@ void Numbers::setNine(int pos, int farbe){
     _autputRow->setAusgenge(a, b, b, c, 0b0, pos, farbe);
 }
 
+
+void Numbers::setPlus(int pos, int farbe){
+    byte a=0b00001000;
+    byte b=0b00011100;
+    _autputRow->setAusgenge(0b0, a, b, a,0b0, pos, farbe);
+}
+
+void Numbers::setMinus(int pos, int farbe){
+    byte a=0b00001000;
+    _autputRow->setAusgenge(0b0, a, a, a, 0b0, pos, farbe);
+}
+
+void Numbers::setEqulse(int pos, int farbe){
+    byte a=0b00010100;
+    _autputRow->setAusgenge(0b0, a, a, a, 0b0, pos, farbe);
+}
+
+void Numbers::setMultipli(int pos, int farbe){
+    byte a=0b00001000;
+    _autputRow->setAusgenge(0b0, 0b0, a, 0b0, 0b0, pos, farbe);
+}
+
+void Numbers::setDivide(int pos, int farbe){
+    byte a=0b00010100;
+    _autputRow->setAusgenge(0b0, 0b0, a, 0b0, 0b0, pos, farbe);
+}
+
 int Numbers::setNumberAut(char a, int farbe, int pos){
     int i;
     switch (a){
@@ -117,6 +144,18 @@ int Numbers::setNumberAut(char a, int farbe, int pos){
     case '9':
         Numbers::setNine(pos, farbe);
         i=9;
+        break;
+    case '+':
+        Numbers::setPlus(pos, farbe);
+        break;
+    case '-':
+        Numbers::setMinus(pos, farbe);
+        break;
+    case '*':
+        Numbers::setMultipli(pos, farbe);
+        break;
+    case '/':
+        Numbers::setDivide(pos, farbe);
         break;
     case '_':
             i=-2;
