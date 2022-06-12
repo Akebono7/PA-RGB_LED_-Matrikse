@@ -10,8 +10,10 @@ class IpFour
 private:
     AutputRow* _autputRow;
     void berchnung(int s);
+    int berenugbits(int a);
+    String faltProtition(int ipa, int ipb, int ipc, int ipd, int ipsub);
 public:
     IpFour(AutputRow* autputRow);
-    void setIPadresse(int ipa, int ipb, int ipc, int ipd, int ipsub);
+    String setIPadresse(int ipa, int ipb, int ipc, int ipd, int ipsub);
 };
 #endif
