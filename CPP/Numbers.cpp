@@ -173,7 +173,7 @@ int Numbers::setNumbersAusgabe(String number, int farbe){
     l=l*5;
     int timer;
     String b="_"+number;
-    for(int i=1; i<=l; i++){
+    for(int i=l; i>=0; i++){
         timer=millis();
         while (timer+500>millis()){
           for(int h=0; h <=l; h=h+5){
