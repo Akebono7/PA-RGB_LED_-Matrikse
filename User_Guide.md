@@ -43,4 +43,4 @@ bei neustra sollte immer ein Rotes Kreutz erschiene.
   
   2 = Blau
   
-  Z.B: NUMBER/1289/2
+  Z.B: NUMBER/1289/2 Gipt 1289 in Blau aus.
