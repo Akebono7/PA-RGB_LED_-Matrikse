@@ -5,69 +5,52 @@
 IpFour::IpFour(AutputRow* autputRow){
     _autputRow= autputRow;
 }
-int IpFour::berenugbits(int a){
-        int c = 0;
-        switch (a){
-        case 1:
-            c = 128;
-            break;
-        case 2:
-            c = 192;
-            break;
-        case 3:
-            c = 224;
-            break;
-        case 4:
-            c = 240;
-            break;
-        case 5:
-            c = 248;
-            break;
-        case 6:
-            c = 252;
-            break;
-        case 7:
-            c = 254;
-            break;
-        case 8: 
-            c = 255;
-            break;
-        default :
-            c = 0;    
-            break;
-        }
-        return c ;
-}
 
 void IpFour::berchnung(int s){
-    int a, b, c, d; 
-   if(s>=24){
-        int f = s-24;
-        a = IpFour::berenugbits(8);
-        b = IpFour::berenugbits(8);
-        c = IpFour::berenugbits(8);
-        d = IpFour::berenugbits(f);
-   }else if(s>=16){
-        int f = s-16;
-        a = IpFour::berenugbits(8);
-        b = IpFour::berenugbits(8);
-        c = IpFour::berenugbits(f);
-        d = IpFour::berenugbits(0);
-   }else if(s>=8){
-        int f = s-8;
-        a = IpFour::berenugbits(8);
-        b = IpFour::berenugbits(f);
-        c = IpFour::berenugbits(0);
-        d = IpFour::berenugbits(0);
-   }else{
-        int f = s;
-        a = IpFour::berenugbits(f);
-        b = IpFour::berenugbits(0);
-        c = IpFour::berenugbits(0);
-        d = IpFour::berenugbits(0);
+    int a , b , c , d ;
+   
+    int r = s/8;
+    int rr = 0;
+
+   switch (r)
+   {
+   case 3:
+        rr = s - 24;
+        a = 255;
+        b = 255;
+        c = 255;
+        d = (256-(pow(2,(8-rr))));
+    break;
+    case 2:
+        rr = s - 16;
+        a = 255;
+        b = 255;
+        c = (256-(pow(2,(8-rr))));
+        d = 0;
+    break;
+    case 1:
+        rr = s - 8;
+        a = 255;
+        b = (256-(pow(2,(8-rr))));
+        c = 0;
+        d = 0;
+    break;
+    case 0:
+        a = (256-(pow(2,(8-s))));
+        b = 0;
+        c = 0;
+        d = 0;
+    break;
+   default:
+        a = 0;
+        b = 0;
+        c = 0;
+        d = 0;
+    break;
    }
     _autputRow->setPosShiftRegisterRGB(0, a, 0, b, 0, c, 0, d, 2);
 }
+
 
 String IpFour::faltProtition(int ipa, int ipb, int ipc, int ipd, int ipsub){
     String falte = "0";
