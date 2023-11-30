@@ -100,30 +100,46 @@ void AutputRow::setPosShiftRegisterRGB(byte p1, byte p2, byte p3, byte p4, byte 
 }
 
 void AutputRow::setAusgenge(byte a, byte b, byte c, byte d, byte e, int pos ,int farbe){
-    if(pos==1){
+    switch (pos)
+    {
+    case 0:
         AutputRow::setPosShiftRegisterRGB(e, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
-    }else if(pos==2){
+        break;
+    case 1:
         AutputRow::setPosShiftRegisterRGB(d, e,0b0, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
-    }else if(pos==3){
+        break;
+    case 2:
         AutputRow::setPosShiftRegisterRGB(c, d, e, 0b0, 0b0, 0b0, 0b0, 0b0, farbe);
-    }else if(pos==4){
+        break;
+    case 3:
         AutputRow::setPosShiftRegisterRGB(b, c, d, e, 0b0, 0b0, 0b0, 0b0, farbe);
-    }else if(pos==5){
+        break;
+    case 4:
         AutputRow::setPosShiftRegisterRGB(a, b, c, d, e, 0b0, 0b0, 0b0, farbe);
-    }else if (pos==6){
+        break;
+    case 5:
         AutputRow::setPosShiftRegisterRGB(0b0, a, b, c, d, e, 0b0, 0b0, farbe);
-    }else if(pos==7){
+        break;
+    case 6:
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, a, b, c, d, e, 0b0, farbe);
-    }else if(pos==8){
+        break;
+    case 7:
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, a, b, c, d, e, farbe);
-    }else if(pos==9){
+        break;
+    case 8:
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, a, b, c, d, farbe);
-    }else if(pos==10){
+        break;
+    case 9:
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, a, b, c, farbe);
-    }else if(pos==11){
-        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, b, farbe);   
-    }else if(pos==12){
+        break;
+    case 10:
+        AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, b, farbe);
+        break;
+    case 11:
         AutputRow::setPosShiftRegisterRGB(0b0, 0b0, 0b0, 0b0, 0b0, 0b0, 0b0, a, farbe);
+        break;
+    default:
+        break;
     }
 }
 
