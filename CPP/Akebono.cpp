@@ -284,16 +284,16 @@ void Akebono::charakter(char a, int farbe, int pos){
     }
 }
 
-void Akebono::setString(String a, int farbe){
-    int l =a.length();
-    l=l*6;
-    a.toLowerCase();
-    int timer;
-    String b="_"+a;
-    for(int i=l; i>=0; i++){
-        timer=millis();
-        while (timer+500>millis()){
-          for(int h=0; h <=l; h=h+6){
+void Akebono::setString(String a, int farbe){    // the out put funcktion of the Class to print a string from left to reith on a 8X8 RGB-LED matriks.
+    int l =a.length();                // get the legth of the String and stors it in the l varibal.
+    l=l*6;                            // multiplis the legthe bay 6 to make the position work.
+    a.toLowerCase();                  // converts the leter in the sting all to lower case to provnet not matches.
+    int timer;                        // Creats a time Vraribal vor the autput. to worke.
+    String b="_"+a;                   // Bug fix of unont typ witch lade to the first rowe of the first carkter in the String not to show this provents the.
+    for(int i=l; i>=0; i++){            //for lopp mit bet canged. set the up cunting for the psotions so the the leter are all presented.
+        timer=millis();               // set timer veriball to curent time in millis.
+        while (timer+500>millis()){     // loops while timer time +pluse 500 ms is greter or equle to time in millis.
+          for(int h=0; h <=l; h=h+6){           
               char c=b.charAt((l-h)/6);
               Akebono::charakter(c, farbe, i-h);
           }
