@@ -6,7 +6,7 @@ Akebono::Akebono(AutputRow* autputRow){
     _autputRow = autputRow;
 }
 
-void Akebono::charakter(char inputChar, int farbe, int pos){
+void Akebono::charakter(char inputChar, int farbe, int pos){  //alpafrebeteicla charakter.
      switch(inputChar){
         case 'a':
             _autputRow->setAusgenge(0b01111111, 0b01001000, 0b01001000, 0b01111111, 0b0, pos, farbe);
