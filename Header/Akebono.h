@@ -14,7 +14,7 @@ class Akebono{
     *   Objektes der AutputRow Klasse.(&objekt);
     */
     Akebono(AutputRow* autputRow);
-    void setString(String inputString, int farbe)   
+    void setString(String inputString, int farbe);   
     /*! @brief setzt A als ausgabe pos gipt die postion des zeichens ann werte von 1 bis 12.
     *   farbe end scheidet welche angesteuert wirt. 0=ROT 1=Grühen 2=Blau.
     */ 
