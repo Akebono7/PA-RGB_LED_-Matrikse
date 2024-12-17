@@ -1,0 +1,16 @@
+{
+    "name": "RGN LED Matrikse",
+    "version": "1.2.0",
+    "description": "a seris of progamse to display number and text on a 8 bie 8 RGB matrikse wife shiftregisters",
+    "repository": {
+        "url": "https://github.com/Akebono7/PA-RGB_LED_-Matrikse"
+    },
+    "authors": {
+            "name": "Akebono7",
+            "url": "https://github.com/Akebono7",
+            "maintiner": true
+        },
+        "license": "GNU General Public License v3.0",
+        "frameworks": "arduino",
+        "platform": "espressif32"
+}
