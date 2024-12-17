@@ -20,89 +20,74 @@
 #define CLK 17
 #define RESTL 16
 
+ShiftRegister Shiftregister_c(CLK, RCLK, OEL, SERIN, RESTL);
+AutputRow Autputrow_c(R1GND, R2GND, R3GND, R4GND, R5GND, R6GND, R7GND, R8GND, &Shiftregister_c);
+Akebono Akebono_c(&Autputrow_c);
+Numbers Numbers_c(&Autputrow_c);
+IpFour IpFour_c(&Autputrow_c);
 
-int tim=0;
-
-ShiftRegister S(CLK, RCLK, OEL, SERIN, RESTL);
-AutputRow aur(R1GND, R2GND, R3GND, R4GND, R5GND, R6GND, R7GND, R8GND, &S);
-Akebono ake(&aur);
-Numbers nr(&aur);
-IpFour ip(&aur);
-
-hw_timer_t* timer = NULL;
 BluetoothSerial SerialBT;
 
-String wordI="NEW";
-String numbers="1234";
-int modus=0;
+String string_input = "NEW";     // autput text 
+String numbers_input = "1234";   // autput number
+int mod = 0;                     // autput systeme mod switche varibale
 
-volatile int ip1, ip2, ip3, ip4, ipsub;
-volatile int zeler =0;
-volatile int farbe=0;
-void onTimer() {		// Interrupt-Service-Routine
-  zeler++;
-  if(zeler==61){
-    zeler=0;
-  }
-}
+volatile int ipaddress_pos_a, ipaddress_pos_b, ipaddress_pos_c, ipaddress_pos_d, subnetmaske; // ipaddress V4 in dezemale riting and subnete maske in / 
+volatile int color = 0;   // color red = 0 ,green = 1 ,blue = 2
 
 void setup() {
   // put your setup code here, to run once:
-  timer= timerBegin(0,80,true);
-  timerAttachInterrupt(timer,&onTimer,true);
-  timerAlarmWrite(timer,1000000,true);
-  timerAlarmEnable(timer);
   Serial.begin(9600);
   SerialBT.begin("ESP_PA_RGB_LED");
 }
-void dataResive(){
-  String s=SerialBT.readStringUntil('/');
-  if(s=="STRING"){
-    wordI=SerialBT.readStringUntil('/');
-    farbe=SerialBT.readStringUntil('/').toInt();
-    modus=1;
-  }else if(s=="NUMBER"){
-    numbers=SerialBT.readStringUntil('/');
-    farbe=SerialBT.readStringUntil('/').toInt();
-    modus=2;
-  }else if(s=="IPv4"){
-    ip1=SerialBT.readStringUntil('.').toInt();
-    ip2=SerialBT.readStringUntil('.').toInt();
-    ip3=SerialBT.readStringUntil('.').toInt();
-    ip4=SerialBT.readStringUntil('.').toInt();
-    ipsub=SerialBT.readStringUntil('/').toInt();
-    modus=3;
-  }else{
-    modus=0;
+int dataResive(){
+  String input_data = SerialBT.readStringUntil('/');
+  if(input_data == "STRING"){
+    string_input = SerialBT.readStringUntil('/');
+    color = SerialBT.readStringUntil('/').toInt();
+    return 1;
   }
+  if(input_data == "NUMBER"){
+    numbers_input = SerialBT.readStringUntil('/');
+    color = SerialBT.readStringUntil('/').toInt();
+    return 2;
+  } 
+  if(input_data == "IPv4"){
+    ipaddress_pos_a = SerialBT.readStringUntil('.').toInt();
+    ipaddress_pos_b = SerialBT.readStringUntil('.').toInt();
+    ipaddress_pos_c = SerialBT.readStringUntil('.').toInt();
+    ipaddress_pos_d = SerialBT.readStringUntil('.').toInt();
+    subnetmaske = SerialBT.readStringUntil('/').toInt();
+    return 3;
+  }
+  return 0;
 }
 
 void loop() {
 
   if(SerialBT.available()>0){
-    dataResive();
+    mod = dataResive();
   }
   
-  switch (modus){
+  switch (mod){
 
   case 0:
-    aur.setFehler();
+    Autputrow_c.setFehler();
     break;
 
   case 1:
-    ake.setString(wordI, farbe);
+    Akebono_c.setString(string_input, color);
     break;
   
   case 2:
-    nr.setNumbersAusgabe(numbers, farbe);
+    Numbers_c.setNumbersAusgabe(numbers_input, color);
     break;
   
   case 3:
-    ip.setIPadresse(ip1, ip2, ip3, ip4, ipsub);
+    IpFour_c.setIPadresse(ipaddress_pos_a, ipaddress_pos_b, ipaddress_pos_c, ipaddress_pos_d, subnetmaske);
     break;
       
   default:
     break;
-  }
-  
+  }  
 }
